@@ -39,7 +39,7 @@ Les diferents pàgines de què es composarà l'aplicació seran:
 
 * **Redacció de notícies**: Els usuaris registrats podran redactar notícies a partir del següent formulari. Per tal de formatar les notícies, farem ús de sintaxi Markdown.
 
-![Pàgina principal](imgs/login.png)
+![Pàgina principal](imgs/redacta.png)
 
 * **Pàgina d'Administració**: L'usuari administrador podrà gestionar els diferents usuaris a través de la següent pàgina d'administració:
 
