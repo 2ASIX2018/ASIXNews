@@ -49,10 +49,10 @@ Les diferents pàgines de què es composarà l'aplicació seran:
 
 | Tasca | Dates de realització |
 |------|-------------|
-| Creació de les diferents vistes |  |
-| Modularització de | |
-| Integració del control de sessions | |
-| Creació de la base de dades | |
-| Afegir funcionalitat d'obtenir notícies | |
-| Afegir funcionalitat de redactar notícies | |
-| Afegir funcionalitat per gestionar usuaris | |
+| Creació de les diferents vistes | del 22/10 al 2/11 |
+| Modularització de les vistes |del 22/10 al 2/11  |
+| Integració del control de sessions | del 5/11 al 16/11 |
+| Creació de la base de dades | del 5/11 al 16/11 |
+| Afegir funcionalitat d'obtenir notícies | del 5/11 al 16/11 |
+| Afegir funcionalitat de redactar notícies | del 19/11 al 3/11  |
+| Afegir funcionalitat per gestionar usuaris | del 19/11 al 3/11 |
