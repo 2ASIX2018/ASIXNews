@@ -39,16 +39,17 @@ Les diferents pàgines de què es composarà l'aplicació seran:
 
 * **Redacció de notícies**: Els usuaris registrats podran redactar notícies a partir del següent formulari. Per tal de formatar les notícies, farem ús de sintaxi Markdown.
 
-![Pàgina principal](redacta/login.png)
+![Pàgina principal](imgs/redacta.png)
 
 * **Pàgina d'Administració**: L'usuari administrador podrà gestionar els diferents usuaris a través de la següent pàgina d'administració:
 
-![Pàgina principal](redacta/admin.png)
+![Pàgina principal](imgs/admin.png)
 
 ### 3. Tasques a realitzar i calendarització
 
 | Tasca | Dates de realització |
 |------|-------------|
+<<<<<<< HEAD
 | Creació de les diferents vistes | del 22/10 al 2/11 |
 | Modularització de les vistes |del 22/10 al 2/11  |
 | Integració del control de sessions | del 5/11 al 16/11 |
@@ -56,3 +57,12 @@ Les diferents pàgines de què es composarà l'aplicació seran:
 | Afegir funcionalitat d'obtenir notícies | del 5/11 al 16/11 |
 | Afegir funcionalitat de redactar notícies | del 19/11 al 3/11  |
 | Afegir funcionalitat per gestionar usuaris | del 19/11 al 3/11 |
+=======
+| Creació de les diferents vistes |  |
+| Modularització de | |
+| Integració del control de sessions | |
+| Creació de la base de dades | |
+| Afegir funcionalitat d'obtenir notícies | |
+| Afegir funcionalitat de redactar notícies | |
+| Afegir funcionalitat per gestionar usuaris | |
+>>>>>>> 18ed223dedbe10dc5514678578a7edddf7813a3d
