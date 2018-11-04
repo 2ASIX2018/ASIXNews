@@ -1,54 +1,66 @@
-<!DOCTYPE html>
+<?php
+session_start();
+
+// Vector temporal amb els usuaris
+// Després caldrà consultar a la base de dades
+$usuaris=["admin", "user"];
+
+$user=$_REQUEST["inputUser"];
+$pass=$_REQUEST["inputPassword"];
+$remember=$_REQUEST["rememberMe"];
+
+if ($pass=="1234" && in_array($user, $usuaris)) {
+    // Usuari logat amb èxit.
+
+    $_SESSION['username']=$user;
+    // Establim el rol de la sessió
+    if ($user=="admin")
+        $_SESSION['role'] = "admin";
+    else if ($user=="user")
+        $_SESSION['role'] = "user";
+
+    // Si l'usuari ho ha indicat, guardem les credencials
+    if($remember=="remember") {
+        setcookie('ASIXNewsUser', $_SESSION['username'], time() + 365 * 24 * 60 * 60); 
+        setcookie('ASIXNewsRole', $_SESSION['role'], time() + 365 * 24 * 60 * 60); 
+    }
+
+    header("Location: index.php");
+    exit();
+}
+else { // Aquesta clau la tancarem després d'afegir codi HTML pur
+?>
+
+<!-- Posem el codi html de la pàgina d'error en el login -->
 <html lang="en">
+<head>
 
-  <head>
+  <meta charset="utf-8">
+  <title>ASIXNews</title>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+  <?php
+  require_once("StylesLoader.php");
+  ?>
+</head>
 
-    <title>ASIXNews</title>
-
-    <?php
-    require_once("StylesLoader.php");
-    ?>
-    <!-- Custom styles for this template -->
-    <link href="css/login.css" rel="stylesheet">
-  </head>
-
-  <body>
-
-    <!-- Navigation -->
-    <?php
-    require_once("menu.php");
-    ?>
-
-    <div class="container">
-
-<div class="login-form">
-<div class="main-div">
-    <div class="panel">
-   <h2>Identifiqueu-vos</h2>
-   <p>Introduïu el vostre usuari i contrassenya</p>
-   </div>
-    <form id="Login">
-        <div class="form-group">
-            <input type="text" class="form-control" id="inputUser" placeholder="Usuari">
-        </div>
-
-        <div class="form-group">
-            <input type="password" class="form-control" id="inputPassword" placeholder="Contrasenya">
-        </div>
-
-        <button type="submit" class="btn btn-primary">Login</button>
-
-    </form>
+<body>
+    <div class="container" style="margin-top:10em;">
+    <div class="alert alert-danger" role="alert">
+    Error: L'usuari no es troba registrat.
     </div>
-</div></div></div>
-
-
-    <?php require_once "footer.php"; ?>    
-  </body>
+    <a href="loginForm.php">Torna enrere</a>
+    </div>
+  <?php require_once "footer.php"; ?>    
+</body>
 
 </html>
+
+
+
+<?php
+// Tanquem la clau de l'else
+}
+
+?>
+
+
