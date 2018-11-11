@@ -1,4 +1,9 @@
-<!DOCTYPE html>
+<?php
+/* Si l'usuari no està registrat o no és administrador, redirigim a index.php */
+session_start();
+if(!isset($_SESSION["username"]) ||  !isset($_SESSION["role"])  || $_SESSION["role"]!="admin") header("Location: index.php");
+?>
+
 <html lang="en">
 
   <head>

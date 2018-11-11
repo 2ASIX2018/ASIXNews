@@ -169,3 +169,38 @@ session_destroy();
 header("Location: index.php");
 exit();
 ```
+
+## Redirigint pàgines per a usuaris no registrats
+
+Fins ara hem mirat com construir la barra de navegació (menu.php) segons el rol de l'usuari, de manera que només apareguen a cada usuari les opcions per accedir a les pàgines a les que té permís. Però... què passaria si un usuari directament accedira a una pàgina a la que no té accés directament des de la barra d'adreces del navegador?
+
+Tal i com ho teniem muntat fins ara, l'usuari podría accedir a la pàgina sense cap problema. Com ho solucionem? Doncs afegint el control de sessions en cadascuna de les pàgines i comprovant els permisos coresponents. En cas que l'usuari no tinga privilegis suficients per accedir a la pàgina en qüestió, simplement redirigim a l'index.
+
+Al nostre cas, com que tenim dos rols diferents (usari registrat i usuari administrador), i cadascun d'ells pot accedir a unes o altres pàgines, farem dos tipus de comprovacions:
+
+### Comprovacions en les pàgines restringides a usuaris normals
+
+En aquest cas, només caldrà comprovar que hi haja sessió iniciada i la variable de sessió "username" estiga establerta (amb isset). Per tant, si no hi ha sessió inicidada, redirigirem a index.php.
+
+```php
+<?php
+/* Si l'usuari no està registrat redirigim a index.php */
+session_start();
+if(!isset($_SESSION["username"])) header("Location: index.php");
+?>
+```
+
+### Comprovacions en les pàgines restringides a l'usuari administrador
+
+En cas que la pàgina només puga ser visible per l'administrador, afegirem algunes comprovacions més, per exemple, que existisca la variable de sessió "role" i que a més, aquesta tinga el valor "admin":
+
+```php
+<?php
+/* Si l'usuari no està registrat o no és administrador, redirigim a index.php */
+session_start();
+if(!isset($_SESSION["username"]) ||  !isset($_SESSION["role"])  || $_SESSION["role"]!="admin") header("Location: index.php");
+?>
+```
+
+Amb aquests codis als inicis de cada document php, aconseguirem doncs evitar l'accés a determinades pàgines als usuaris que no tenen privilegis suficients per accedir-hi.
+

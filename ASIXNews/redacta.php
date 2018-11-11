@@ -1,5 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+/* Si l'usuari no està registrat, redirigim a index.php */
+session_start();
+if(!isset($_SESSION["username"])) header("Location: index.php");
+?><html lang="en">
 
   <head>
 

@@ -1,6 +1,12 @@
 <?php
 session_start();
 
+/* Si l'usuari no està registrat redirigim a index.php */
+session_start();
+if(!isset($_SESSION["username"])) header("Location: index.php");
+
+// Si està registrat procedim a tancar la sessió
+
 // Esborrem tota la informació
 $_SESSION = array();
 
