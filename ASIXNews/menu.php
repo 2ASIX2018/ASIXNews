@@ -39,6 +39,12 @@ $userLabel=$user.$role;
               <li class="nav-item">
                 <a class="nav-link" href="redacta.php">Redacta</a>
               </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="images.php">Gestor de mitjos</a>
+              </li>
+
+
             <?php
               }
               if (isset($_SESSION['role']) && $_SESSION['role']=="admin") {
