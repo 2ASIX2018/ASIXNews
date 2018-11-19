@@ -1,5 +1,9 @@
 <?php
 session_start();
+require_once("models/usuari.php");
+
+// Creem un objecte de tipus usuari
+$usuari=new Usuari();
 
 // Vector temporal amb els usuaris
 // Després caldrà consultar a la base de dades
@@ -9,15 +13,13 @@ $user=$_REQUEST["inputUser"];
 $pass=$_REQUEST["inputPassword"];
 $remember=$_REQUEST["rememberMe"];
 
-if ($pass=="1234" && in_array($user, $usuaris)) {
-    // Usuari logat amb èxit.
+// Comprovem l'usuari amb el mètode validaUsuari
+$role=$usuari->validaUsuari($user, $pass);
 
+if ($role){
+    // Usuari logat amb èxit.
     $_SESSION['username']=$user;
-    // Establim el rol de la sessió
-    if ($user=="admin")
-        $_SESSION['role'] = "admin";
-    else if ($user=="user")
-        $_SESSION['role'] = "user";
+    $_SESSION['role'] = $role;
 
     // Si l'usuari ho ha indicat, guardem les credencials
     if($remember=="remember") {
